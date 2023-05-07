@@ -34,12 +34,12 @@ const Cards = ({ type, user, image }) => {
 
 
   return (
-    <Link to="/Teachers/1" style={{ textDecoration: "none" }}>
+    <Link to={`/Teachers/1?firstName=${user.firstName}& image=${user.image}& Brandad=${user.techerInfo}`} style={{ textDecoration: "none" }}>
       <Container>
         <Image src={require(`../img/${user.image}`)} />
         <Details>
           <Texts>
-            <Title>{user.image}</Title>
+            <Title>{user.firstName}</Title>
           </Texts>
         </Details>
       </Container>

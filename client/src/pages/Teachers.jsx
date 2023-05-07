@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import teacher1 from '../img/bouziane.png'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+
+
 
 
 const Container = styled.div`
@@ -58,14 +60,24 @@ const Hr = styled.hr`
 
 
 const Teachers = () => {
+    function useQuery() {
+        return new URLSearchParams(useLocation().search);
+
+    }
+    let query = useQuery();
+
+
+
+
+
     return (
         <Container>
             <Content>
                 <Title>
-                    Dr Abdel Ghani Bouziane
+                    {query}
                 </Title>
                 <Details>
-                    AI Developer and Teacher in CUN
+                    {query.find("image")}
                 </Details>
                 <Hr />
                 <Details>
@@ -80,7 +92,7 @@ const Teachers = () => {
                 <br />
                 <br />
                 <Title>
-                    Modules
+                    Modules{ }
                 </Title>
                 <Link to="/Modules/1" style={{ textDecoration: "none" }}>
                     <button type="button" class="btn btn-secondary" style={{ margin: "20px" }}>Theorie de langauge</button>
@@ -89,7 +101,7 @@ const Teachers = () => {
                     <button type="button" class="btn btn-secondary" style={{ margin: "20px" }}>Web developement</button>
                 </Link>
             </Content>
-            <Recommendation><Img src={teacher1} /></Recommendation>
+            <Recommendation><Img src="../img/22.png" /></Recommendation>
         </Container>
     )
 }
